@@ -1,0 +1,42 @@
+:root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #0c1018; touch-action: none; }
+button { font: inherit; }
+#app { position: fixed; inset: 0; overflow: hidden; background: radial-gradient(circle at 50% 50%, #1c2737 0, #0a0f17 74%); }
+#game { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+#hud { position: absolute; left: max(10px, env(safe-area-inset-left)); right: max(10px, env(safe-area-inset-right)); top: max(8px, env(safe-area-inset-top)); min-height: 64px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; pointer-events: none; }
+.hud-left, .hud-right { display: flex; gap: 8px; align-items: center; }
+.hud-right { justify-content: flex-end; pointer-events: auto; }
+.brand, .stat, .hud-center, .hud-button { backdrop-filter: blur(8px); background: rgba(8, 13, 21, .68); border: 1px solid rgba(206, 226, 255, .16); box-shadow: 0 8px 24px rgba(0,0,0,.22); }
+.brand { padding: 10px 12px; border-radius: 12px; font-size: 12px; font-weight: 900; letter-spacing: .12em; color: #ecf6ff; }
+.brand span { color: #72e2ff; }
+.stat { min-width: 72px; padding: 7px 10px; border-radius: 12px; display: grid; line-height: 1.05; }
+.stat b { font-size: 9px; letter-spacing: .08em; text-transform: uppercase; color: #9bb2c8; }
+.stat span { margin-top: 2px; font-size: 17px; font-weight: 900; color: #fff; }
+.hud-center { padding: 8px 15px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: #d7e7f4; }
+.hud-button { color: #f7fbff; border-radius: 12px; padding: 8px 12px; min-width: 76px; min-height: 50px; font-weight: 900; font-size: 11px; line-height: 1.05; }
+.hud-button small { font-size: 8px; color: #83ddff; }
+.hud-button.secondary { opacity: .78; }
+.hud-button.active { border-color: rgba(130, 232, 255, .8); box-shadow: 0 0 0 2px rgba(80,190,230,.18), 0 8px 24px rgba(0,0,0,.25); }
+#mobileControls { position: absolute; inset: 0; pointer-events: none; }
+.joystick { position: absolute; width: 116px; height: 116px; left: max(22px, env(safe-area-inset-left)); bottom: max(18px, env(safe-area-inset-bottom)); border-radius: 50%; border: 2px solid rgba(230,245,255,.24); background: radial-gradient(circle, rgba(160,205,230,.11), rgba(4,7,13,.55)); box-shadow: inset 0 0 30px rgba(70,150,190,.12); pointer-events: auto; }
+.stick { position: absolute; width: 52px; height: 52px; left: 32px; top: 32px; border-radius: 50%; background: rgba(203,237,255,.28); border: 2px solid rgba(225,247,255,.55); box-shadow: 0 6px 20px rgba(0,0,0,.28); }
+.action { position: absolute; right: max(26px, env(safe-area-inset-right)); bottom: max(24px, env(safe-area-inset-bottom)); width: 92px; height: 92px; border-radius: 50%; border: 2px solid rgba(255,255,255,.34); color: white; background: radial-gradient(circle at 35% 30%, rgba(255,185,102,.55), rgba(150,54,37,.77)); box-shadow: 0 8px 28px rgba(0,0,0,.35), inset 0 0 20px rgba(255,220,160,.13); pointer-events: auto; font-size: 30px; font-weight: 900; }
+.action span { display: block; font-size: 9px; letter-spacing: .08em; }
+.action:active, .hud-button:active { transform: scale(.96); }
+#overlay { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(2,5,10,.67); backdrop-filter: blur(8px); z-index: 10; }
+#overlay.hidden { display: none; }
+.panel { width: min(440px, 82vw); padding: 28px; text-align: center; border-radius: 22px; background: linear-gradient(180deg, rgba(27,39,54,.96), rgba(10,17,27,.96)); border: 1px solid rgba(194,229,255,.23); box-shadow: 0 24px 80px rgba(0,0,0,.55); }
+.eyebrow { font-size: 10px; letter-spacing: .22em; font-weight: 900; color: #8ddffc; }
+.panel h1 { margin: 6px 0 4px; font-size: clamp(30px, 5vw, 54px); }
+.panel p { margin: 0 0 20px; color: #bdcad7; }
+.panel button { border: 0; border-radius: 999px; padding: 13px 22px; font-weight: 900; letter-spacing: .08em; color: #071118; background: linear-gradient(180deg, #c9f6ff, #67d9ef); }
+@media (max-height: 500px) {
+  #hud { min-height: 52px; }
+  .brand { display: none; }
+  .stat { min-width: 60px; padding: 6px 8px; }
+  .stat span { font-size: 15px; }
+  .joystick { width: 102px; height: 102px; }
+  .stick { left: 27px; top: 27px; width: 48px; height: 48px; }
+  .action { width: 80px; height: 80px; }
+}
