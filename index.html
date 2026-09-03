@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+  <meta name="theme-color" content="#111622" />
+  <title>Fallen Keep — Milestone 1</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app">
+    <canvas id="game" aria-label="Fantasy defense game"></canvas>
+    <section id="hud" aria-live="polite">
+      <div class="hud-left">
+        <div class="brand">FALLEN KEEP <span>M1</span></div>
+        <div class="stat"><b>Crystal</b><span id="crystalHp">100</span></div>
+        <div class="stat"><b>Mana</b><span id="mana">100</span></div>
+        <div class="stat"><b>Enemies</b><span id="enemies">0</span></div>
+      </div>
+      <div class="hud-center" id="statusText">Defend the crystal</div>
+      <div class="hud-right">
+        <button id="buildBtn" class="hud-button">BUILD<br><small>30 mana</small></button>
+        <button id="restartBtn" class="hud-button secondary">RESTART</button>
+      </div>
+    </section>
+
+    <section id="mobileControls" aria-label="Mobile controls">
+      <div id="joystick" class="joystick"><div id="stick" class="stick"></div></div>
+      <button id="attackBtn" class="action attack">⚔<span>ATTACK</span></button>
+    </section>
+
+    <section id="overlay" class="hidden">
+      <div class="panel">
+        <div class="eyebrow">THE FALLEN KEEP</div>
+        <h1 id="overlayTitle">Victory</h1>
+        <p id="overlayBody">The crystal still stands.</p>
+        <button id="overlayRestart">PLAY AGAIN</button>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
